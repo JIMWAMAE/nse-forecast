@@ -1,0 +1,11 @@
+code,name,first_date,last_date,rows,zero_volume_days,price_adjustments,outlier_returns,dropped_missing_price,dropped_duplicates,zero_volume_share
+ABSA,ABSA Bank Kenya Plc,2015-05-09,2026-06-30,2353,2,4,0,0,1,0.001
+BRIT,Britam Holdings Plc,2015-05-09,2026-06-30,2353,1,18,0,0,1,0.0
+COOP,Co-operative Bank of Kenya Ltd,2015-05-09,2026-06-30,2353,0,8,0,0,1,0.0
+EQTY,Equity Group Holdings Plc,2015-05-09,2026-06-30,2353,0,9,0,0,1,0.0
+KCB,KCB Group Plc,2015-05-09,2026-06-30,2353,0,8,0,0,1,0.0
+KEGN,Kenya Electricity Generating Company Plc,2015-05-09,2026-06-30,2353,1,2,1,0,1,0.0
+KNRE,Kenya Re-Insurance Corporation Ltd,2015-05-09,2026-06-30,2353,0,11,3,0,1,0.0
+KPLC,Kenya Power and Lighting Company Plc,2015-05-09,2026-06-30,2353,0,14,1,0,1,0.0
+KQ,Kenya Airways Plc,2015-05-09,2026-06-30,2353,1126,2,1,0,1,0.479
+SCOM,Safaricom Plc,2015-05-09,2026-06-30,2353,0,12,0,0,1,0.0

@@ -1,0 +1,11 @@
+code,name,as_of_date,last_price,forecast_return_pct,forecast_price,volatility_1d_pct,range_95_low,range_95_high,base_model_price,naive_price
+KCB,KCB Group Plc,2026-06-30,78.75,1.7308,80.1249,4.0751,73.9741,86.7871,79.8605,78.75
+KQ,Kenya Airways Plc,2026-06-30,5.86,-0.2287,5.8466,2.7465,5.5402,6.17,5.8492,5.86
+KEGN,Kenya Electricity Generating Company Plc,2026-06-30,9.76,-0.2329,9.7373,2.4006,9.2898,10.2064,9.73,9.76
+KNRE,Kenya Re-Insurance Corporation Ltd,2026-06-30,3.33,-0.1217,3.3259,2.2194,3.1844,3.4738,3.3257,3.33
+KPLC,Kenya Power and Lighting Company Plc,2026-06-30,17.15,-0.1387,17.1262,2.0349,16.4566,17.8231,17.1195,17.15
+EQTY,Equity Group Holdings Plc,2026-06-30,80.0,1.2053,80.9701,1.9797,77.8885,84.1737,80.7901,80.0
+BRIT,Britam Holdings Plc,2026-06-30,12.55,0.1892,12.5738,1.8688,12.1215,13.0429,12.5677,12.55
+COOP,Co-operative Bank of Kenya Ltd,2026-06-30,34.3,-0.1579,34.2459,1.7487,33.092,35.44,34.2584,34.3
+ABSA,ABSA Bank Kenya Plc,2026-06-30,32.05,0.9107,32.3432,1.5679,31.3644,33.3526,32.2796,32.05
+SCOM,Safaricom Plc,2026-06-30,34.05,1.5001,34.5646,1.5579,33.5251,35.6363,34.4601,34.05

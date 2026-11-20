@@ -1,0 +1,58 @@
+# Central configuration. Change values here, not in the code.
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  models_dir: models
+  reports_dir: reports
+
+# The ten stocks selected using Ziidi Trader trading volume.
+stocks:
+  ABSA: ABSA Bank Kenya Plc
+  BRIT: Britam Holdings Plc
+  COOP: Co-operative Bank of Kenya Ltd
+  EQTY: Equity Group Holdings Plc
+  KCB: KCB Group Plc
+  KQ: Kenya Airways Plc
+  KEGN: Kenya Electricity Generating Company Plc
+  KPLC: Kenya Power and Lighting Company Plc
+  KNRE: Kenya Re-Insurance Corporation Ltd
+  SCOM: Safaricom Plc
+
+# Older codes that refer to the same company (Barclays Bank Kenya became ABSA in 2020).
+code_aliases:
+  BBK: ABSA
+
+# Chronological splits (based on the date of the day being predicted).
+split:
+  train_end: "2023-12-31"   # tuning stage: fit on data up to here
+  val_end: "2025-12-31"     # tuning stage: validate on train_end..val_end
+  test_start: "2026-01-01"  # final test: held-out 2026 data, used once
+
+cleaning:
+  max_abs_return: 0.25        # daily log moves bigger than this are treated as data errors / unadjusted corporate actions
+  adjustment_tolerance: 0.02  # gap between 'Previous' and last close that signals a price adjustment
+
+egarch:
+  p: 1
+  o: 1
+  q: 1
+  dist: t          # Student-t errors (falls back to normal if it fails)
+
+xgboost:
+  fixed:
+    objective: reg:squarederror
+    subsample: 0.8
+    colsample_bytree: 0.8
+    reg_lambda: 1.0
+    tree_method: hist
+  grid:
+    max_depth: [2, 3, 4]
+    learning_rate: [0.02, 0.05]
+    n_estimators: [200, 500]
+    min_child_weight: [10, 50]
+
+serving:
+  history_rows: 250   # rows per stock kept for the API
+  min_rows: 40        # minimum rows a client must send to POST /forecast

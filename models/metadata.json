@@ -1,0 +1,205 @@
+{
+  "version": "1.0.0",
+  "trained_at": "2026-11-19T16:15:36+00:00",
+  "data_range": [
+    "2015-05-09",
+    "2026-06-30"
+  ],
+  "train_rows": 23424,
+  "features_base": [
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "ret_lag5",
+    "ret_mean_5",
+    "ret_mean_20",
+    "ret_std_5",
+    "ret_std_20",
+    "mom_20",
+    "ma_gap_20",
+    "rsi_14",
+    "range_hl",
+    "range_mean_5",
+    "close_pos",
+    "log_volume",
+    "volume_ratio_20",
+    "zero_volume",
+    "zero_volume_share_20",
+    "dist_12m_high",
+    "dist_12m_low",
+    "day_of_week",
+    "stock_ABSA",
+    "stock_BRIT",
+    "stock_COOP",
+    "stock_EQTY",
+    "stock_KCB",
+    "stock_KEGN",
+    "stock_KNRE",
+    "stock_KPLC",
+    "stock_KQ",
+    "stock_SCOM"
+  ],
+  "features_hybrid": [
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "ret_lag5",
+    "ret_mean_5",
+    "ret_mean_20",
+    "ret_std_5",
+    "ret_std_20",
+    "mom_20",
+    "ma_gap_20",
+    "rsi_14",
+    "range_hl",
+    "range_mean_5",
+    "close_pos",
+    "log_volume",
+    "volume_ratio_20",
+    "zero_volume",
+    "zero_volume_share_20",
+    "dist_12m_high",
+    "dist_12m_low",
+    "day_of_week",
+    "egarch_sigma",
+    "egarch_sigma_ratio",
+    "stock_ABSA",
+    "stock_BRIT",
+    "stock_COOP",
+    "stock_EQTY",
+    "stock_KCB",
+    "stock_KEGN",
+    "stock_KNRE",
+    "stock_KPLC",
+    "stock_KQ",
+    "stock_SCOM"
+  ],
+  "best_params": {
+    "xgb_base": {
+      "max_depth": 3,
+      "learning_rate": 0.02,
+      "n_estimators": 500,
+      "min_child_weight": 10
+    },
+    "xgb_hybrid": {
+      "max_depth": 4,
+      "learning_rate": 0.02,
+      "n_estimators": 500,
+      "min_child_weight": 50
+    }
+  },
+  "test_metrics": [
+    {
+      "model": "Last price (naive)",
+      "n": 1220,
+      "ret_rmse": 0.021327150449015723,
+      "ret_mae": 0.012846182113994528,
+      "price_rmse": 0.5738532399347472,
+      "price_mae": 0.29859016393442617,
+      "price_mape_pct": 1.2801570757909078,
+      "dir_acc": NaN,
+      "days_moved": 1052
+    },
+    {
+      "model": "XGBoost (no volatility)",
+      "n": 1220,
+      "ret_rmse": 0.019358957380109416,
+      "ret_mae": 0.012235536602801723,
+      "price_rmse": 0.5262574020050255,
+      "price_mae": 0.2884617421969038,
+      "price_mape_pct": 1.2190715776375707,
+      "dir_acc": 0.6074144486692015,
+      "days_moved": 1052
+    },
+    {
+      "model": "EGARCH + XGBoost (hybrid)",
+      "n": 1220,
+      "ret_rmse": 0.01947231768962615,
+      "ret_mae": 0.012271170730835616,
+      "price_rmse": 0.5265477221789038,
+      "price_mae": 0.2881170041316845,
+      "price_mape_pct": 1.2231735390830611,
+      "dir_acc": 0.6131178707224335,
+      "days_moved": 1052
+    }
+  ],
+  "versions": {
+    "python": "3.12.14",
+    "xgboost": "3.4.1",
+    "arch": "9.0.0",
+    "pandas": "3.1.1"
+  },
+  "config": {
+    "seed": 42,
+    "paths": {
+      "raw_dir": "/Users/mac/Downloads/nse-forecast/data/raw",
+      "processed_dir": "/Users/mac/Downloads/nse-forecast/data/processed",
+      "models_dir": "/Users/mac/Downloads/nse-forecast/models",
+      "reports_dir": "/Users/mac/Downloads/nse-forecast/reports"
+    },
+    "stocks": {
+      "ABSA": "ABSA Bank Kenya Plc",
+      "BRIT": "Britam Holdings Plc",
+      "COOP": "Co-operative Bank of Kenya Ltd",
+      "EQTY": "Equity Group Holdings Plc",
+      "KCB": "KCB Group Plc",
+      "KQ": "Kenya Airways Plc",
+      "KEGN": "Kenya Electricity Generating Company Plc",
+      "KPLC": "Kenya Power and Lighting Company Plc",
+      "KNRE": "Kenya Re-Insurance Corporation Ltd",
+      "SCOM": "Safaricom Plc"
+    },
+    "code_aliases": {
+      "BBK": "ABSA"
+    },
+    "split": {
+      "train_end": "2023-12-31",
+      "val_end": "2025-12-31",
+      "test_start": "2026-01-01"
+    },
+    "cleaning": {
+      "max_abs_return": 0.25,
+      "adjustment_tolerance": 0.02
+    },
+    "egarch": {
+      "p": 1,
+      "o": 1,
+      "q": 1,
+      "dist": "t"
+    },
+    "xgboost": {
+      "fixed": {
+        "objective": "reg:squarederror",
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "reg_lambda": 1.0,
+        "tree_method": "hist"
+      },
+      "grid": {
+        "max_depth": [
+          2,
+          3,
+          4
+        ],
+        "learning_rate": [
+          0.02,
+          0.05
+        ],
+        "n_estimators": [
+          200,
+          500
+        ],
+        "min_child_weight": [
+          10,
+          50
+        ]
+      }
+    },
+    "serving": {
+      "history_rows": 250,
+      "min_rows": 40
+    }
+  }
+}

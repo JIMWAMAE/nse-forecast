@@ -1,0 +1,14 @@
+{
+  "xgb_base": {
+    "max_depth": 3,
+    "learning_rate": 0.02,
+    "n_estimators": 500,
+    "min_child_weight": 10
+  },
+  "xgb_hybrid": {
+    "max_depth": 4,
+    "learning_rate": 0.02,
+    "n_estimators": 500,
+    "min_child_weight": 50
+  }
+}
