@@ -1,6 +1,6 @@
 """
 Builds the stock charts and the stock-summary table used in README.md.
-Run from the project root:   .venv/bin/python make_readme_charts.py
+Run from the project root:   .venv/bin/python scripts/make_readme_charts.py
 Outputs: docs/images/*.png and an updated stats table inside README.md
 """
 import glob, re
